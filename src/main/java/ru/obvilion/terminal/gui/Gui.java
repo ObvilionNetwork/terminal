@@ -9,11 +9,18 @@ import javafx.scene.image.Image;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+import ru.obvilion.terminal.utils.ResizeHelper;
 
 public class Gui extends Application {
     private static Stage stage;
-    private static double x;
-    private static double y;
+
+    public static double x;
+    public static double y;
+    public static double xClick;
+    public static double yClick;
+
+    public static double width;
+    public static double height;
 
     public static boolean maximised = false;
 
@@ -22,7 +29,7 @@ public class Gui extends Application {
         stage = primaryStage;
 
         final ClassLoader loader = getClass().getClassLoader();
-        final Parent root = FXMLLoader.load(loader.getResource("Main.fxml"));
+        final Parent root = FXMLLoader.load(loader.getResource("Frame.fxml"));
 
         stage.initStyle(StageStyle.UNDECORATED);
         stage.getIcons().add(new Image(loader.getResourceAsStream("images/logo.png")));
@@ -31,15 +38,10 @@ public class Gui extends Application {
         stage.setScene(new Scene(root));
         stage.show();
 
-        root.setOnMousePressed(event -> {
-            x = event.getSceneX();
-            y = event.getSceneY();
-        });
+        stage.setMinWidth(200);
+        stage.setMinHeight(130);
 
-        root.setOnMouseDragged(event -> {
-            stage.setX(event.getScreenX() - x);
-            stage.setY(event.getScreenY() - y);
-        });
+        ResizeHelper.addResizeListener(stage);
     }
 
     public static Stage getStage() {
@@ -54,11 +56,8 @@ public class Gui extends Application {
 
         final double height = bounds.getHeight();
         final double width = bounds.getWidth();
-
         final double x = width > height ? height * 1.078 : width * 0.8;
         final double y = width > height ? height * 0.61 : width * 0.5;
-
-        System.out.println(width);
 
         if (maximised) {
             stage.setX(bounds.getMinX());
