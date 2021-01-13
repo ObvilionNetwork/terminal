@@ -1,0 +1,2 @@
+# terminal
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/bf76ffdf1f684d7c8a214b736f4a3e35)](https://app.codacy.com/gh/ObvilionNetwork/terminal?utm_source=github.com&utm_medium=referral&utm_content=ObvilionNetwork/terminal&utm_campaign=Badge_Grade_Settings)
