@@ -6,6 +6,7 @@ import javafx.geometry.Rectangle2D;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
+import javafx.scene.paint.Color;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
@@ -13,14 +14,6 @@ import ru.obvilion.terminal.utils.ResizeHelper;
 
 public class Gui extends Application {
     private static Stage stage;
-
-    public static double x;
-    public static double y;
-    public static double xClick;
-    public static double yClick;
-
-    public static double width;
-    public static double height;
 
     public static boolean maximised = false;
 
@@ -31,7 +24,9 @@ public class Gui extends Application {
         final ClassLoader loader = getClass().getClassLoader();
         final Parent root = FXMLLoader.load(loader.getResource("Frame.fxml"));
 
-        stage.initStyle(StageStyle.UNDECORATED);
+        root.getStylesheets().add((loader.getResource("style.css")).toExternalForm());
+
+        stage.initStyle(StageStyle.TRANSPARENT);
         stage.getIcons().add(new Image(loader.getResourceAsStream("images/logo.png")));
 
         stage.setTitle("Obvilion Terminal");
@@ -40,6 +35,7 @@ public class Gui extends Application {
 
         stage.setMinWidth(200);
         stage.setMinHeight(130);
+        stage.getScene().setFill(Color.TRANSPARENT);
 
         ResizeHelper.addResizeListener(stage);
     }

@@ -2,7 +2,6 @@ package ru.obvilion.terminal.utils;
 
 import javafx.event.EventHandler;
 import javafx.event.EventType;
-import javafx.scene.Cursor;
 import javafx.scene.Node;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
@@ -30,7 +29,7 @@ public class MoveHelper {
         public void handle(MouseEvent event) {
             final EventType<? extends MouseEvent> eventType = event.getEventType();
             final Stage stage = Gui.getStage();
-            
+
             if (ResizeHelper.isResize) return;
 
             if (MouseEvent.MOUSE_DRAGGED.equals(eventType)) {
@@ -38,13 +37,13 @@ public class MoveHelper {
                 stage.setY(event.getScreenY() - clickY);
             }
             else if (MouseEvent.MOUSE_RELEASED.equals(eventType)) {
-                stage.setOpacity(1);
+                StyleUtil.createFadeAnimation(stage, 200, 1);
             }
             else if (MouseEvent.MOUSE_PRESSED.equals(eventType)) {
                 clickX = event.getSceneX();
                 clickY = event.getSceneY();
 
-                stage.setOpacity(0.8);
+                StyleUtil.createFadeAnimation(stage, 200, 0.8f);
             }
         }
     }

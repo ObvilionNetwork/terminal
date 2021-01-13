@@ -4,7 +4,11 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.shape.*?>
 
-<AnchorPane fx:id="root" prefHeight="660" prefWidth="1165" style="-fx-background-color: #18191b;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ru.obvilion.terminal.controllers.FrameController">
+<AnchorPane fx:id="root" prefHeight="660" prefWidth="1165" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ru.obvilion.terminal.controllers.FrameController">
+   <!-- Фон -->
+   <Pane prefHeight="${root.height}" prefWidth="${root.width}" style="-fx-background-color: #18191b;" />
+
+   <!-- Верхний бар -->
    <Pane fx:id="TOP_BAR" prefHeight="30.0" prefWidth="${root.width}" style="-fx-background-color: #1e1f22;">
       <Circle fx:id="CLOSE_BUTTON" fill="#f16972" layoutX="${root.width - 27}" layoutY="15.6" radius="6.4" strokeWidth="0">
          <cursor>
