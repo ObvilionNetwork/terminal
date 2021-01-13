@@ -23,7 +23,7 @@ public class FrameController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         root.setOpaqueInsets(new Insets(15, 15, 15, 15));
 
-        CLOSE_BUTTON.setOnMouseClicked(e -> System.exit(0));
+        CLOSE_BUTTON.setOnMouseClicked(e -> Runtime.getRuntime().exit(0));
         MAXIMISE_BUTTON.setOnMouseClicked(e -> Gui.maximise());
         HIDE_BUTTON.setOnMouseClicked(e -> Gui.getStage().setIconified(true));
 
