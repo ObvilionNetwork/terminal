@@ -1,0 +1,17 @@
+plugins {
+    id 'java'
+}
+
+group 'ru.obvilion'
+version '0.1'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    //compile (files('javafx/base.jar'));
+    //compile (files('javafx/fxml.jar'));
+    //compile (files('javafx/graphics.jar'));
+    //compile (files('javafx/controls.jar'));
+}
