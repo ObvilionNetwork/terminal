@@ -9,7 +9,7 @@ import ru.obvilion.terminal.gui.Gui;
 
 public class MoveHelper {
     public static void addMoveListener(Node node) {
-        final MoveHelper.MoveListener moveListener = new MoveHelper.MoveListener(node);
+        final MoveHelper.MoveListener moveListener = new MoveHelper.MoveListener();
 
         node.addEventHandler(MouseEvent.MOUSE_PRESSED, moveListener);
         node.addEventHandler(MouseEvent.MOUSE_DRAGGED, moveListener);
@@ -17,12 +17,11 @@ public class MoveHelper {
     }
 
     private static class MoveListener implements EventHandler<MouseEvent> {
-        private final Node node;
         private double clickX = 0;
         private double clickY = 0;
 
-        public MoveListener(Node node) {
-            this.node = node;
+        public MoveListener() {
+
         }
 
         @Override

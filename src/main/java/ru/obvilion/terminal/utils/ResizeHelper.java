@@ -125,6 +125,10 @@ public class ResizeHelper {
                                     stage.setHeight(mouseEventY + startY);
                                 }
                             }
+
+                            if (stage.getHeight() < minHeight) {
+                                stage.setHeight(minHeight);
+                            }
                         }
 
                         if (!Cursor.N_RESIZE.equals(cursorEvent) && !Cursor.S_RESIZE.equals(cursorEvent)) {
@@ -138,6 +142,10 @@ public class ResizeHelper {
                                 if (stage.getWidth() > minWidth || mouseEventX + startX - stage.getWidth() > 0) {
                                     stage.setWidth(mouseEventX + startX);
                                 }
+                            }
+
+                            if (stage.getWidth() < minWidth) {
+                                stage.setWidth(minWidth);
                             }
                         }
                     }

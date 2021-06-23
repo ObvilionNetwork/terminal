@@ -10,6 +10,7 @@ import javafx.scene.paint.Color;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+import ru.obvilion.terminal.Vars;
 import ru.obvilion.terminal.utils.ResizeHelper;
 
 public class Gui extends Application {
@@ -22,19 +23,21 @@ public class Gui extends Application {
         stage = primaryStage;
 
         final ClassLoader loader = getClass().getClassLoader();
-        final Parent root = FXMLLoader.load(loader.getResource("Frame.fxml"));
+        final FXMLLoader fxmlLoader = new FXMLLoader(loader.getResource("Terminal.fxml"));
+        final Parent root = fxmlLoader.load();
+
+        Vars.terminalController = fxmlLoader.getController();
 
         root.getStylesheets().add((loader.getResource("style.css")).toExternalForm());
 
         stage.initStyle(StageStyle.TRANSPARENT);
         stage.getIcons().add(new Image(loader.getResourceAsStream("images/logo.png")));
-
         stage.setTitle("Obvilion Terminal");
         stage.setScene(new Scene(root));
         stage.show();
 
-        stage.setMinWidth(200);
-        stage.setMinHeight(130);
+        stage.setMinWidth(250);
+        stage.setMinHeight(160);
         stage.getScene().setFill(Color.TRANSPARENT);
 
         ResizeHelper.addResizeListener(stage);

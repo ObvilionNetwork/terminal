@@ -14,4 +14,6 @@ dependencies {
     //compile (files('javafx/fxml.jar'));
     //compile (files('javafx/graphics.jar'));
     //compile (files('javafx/controls.jar'));
+
+    compile 'com.jcraft:jsch:0.1.54'
 }
